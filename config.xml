@@ -86,4 +86,5 @@
         <variable name="CHANNEL_NAME" value="Production" />
         <variable name="UPDATE_METHOD" value="background" />
     </plugin>
+    <plugin name="cordova-plugin-camera" spec="^2.4.1" />
 </widget>
