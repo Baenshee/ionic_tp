@@ -13,7 +13,7 @@
     <ion-label floating>app.name</ion-label>
     <ion-input [(ngModel)]="app.name" type="text"></ion-input>
   </ion-item>
-  <button (click)="takePicture()">Take a Picture</button>
+  <button ion-button (click)="takePicture()">Take a Picture</button>
 
   Latest Picture:
   <img [src]="base64Image" *ngIf="base64Image" />
