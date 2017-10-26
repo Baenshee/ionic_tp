@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
+import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 
 /**
  * Generated class for the TestPage page.
@@ -16,7 +17,9 @@ import { Camera } from '@ionic-native/camera';
 })
 export class TestPage {
   public base64Image: string;
-  constructor(public navCtrl: NavController, public camera: Camera) {
+  constructor(public navCtrl: NavController,
+              public camera: Camera,
+              private base64ToGallery: Base64ToGallery) {
   }
 
   takePicture(){
@@ -30,6 +33,13 @@ export class TestPage {
     }, (err) => {
       console.log(err);
     });
+  }
+
+  savePicture(){
+    this.base64ToGallery.base64ToGallery(this.base64Image, { prefix: '_img' }).then(
+      res => console.log('Saved image to gallery ', res),
+      err => console.log('Error saving image to gallery ', err)
+    );
   }
 
 }
