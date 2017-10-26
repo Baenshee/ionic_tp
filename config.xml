@@ -83,7 +83,7 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
     <plugin name="cordova-plugin-ionic" spec="^2.0.1">
         <variable name="APP_ID" value="38839f3d" />
-        <variable name="CHANNEL_NAME" value="Master" />
+        <variable name="CHANNEL_NAME" value="Production" />
         <variable name="UPDATE_METHOD" value="background" />
     </plugin>
 </widget>
