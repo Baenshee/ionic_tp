@@ -19,4 +19,9 @@
   <br>
   Latest Picture:
   <img [src]="base64Image" *ngIf="base64Image" />
+  <button ion-button (click)="takeVideo()">Take a Video</button>
+  <video id="resource-video" controls="controls" autoplay="false" [src]="videoData">
+    Your browser does not support the video tag.
+  </video>
+
 </ion-content>
