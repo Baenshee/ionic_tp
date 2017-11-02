@@ -22,7 +22,7 @@ import {VideoPlayer} from '@ionic-native/video-player';
 export class TestPage {
   public base64Image: string;
   public imageData: string;
-  private videoData: string;
+  public videoData: string;
 
   constructor(public navCtrl: NavController,
               public camera: Camera,
@@ -65,13 +65,10 @@ export class TestPage {
   }
 
   takeVideo() {
-    let options: CaptureImageOptions = {limit: 3};
+    let options: CaptureImageOptions = {limit: 1};
     this.mediaCapture.captureVideo(options)
       .then(
-        (data: MediaFile[]) => {
-          console.log(data)
-          this.videoData = data[0].fullPath;
-        },
+        (data: MediaFile[]) => this.videoData = data[0].fullPath,
         (err: CaptureError) => alert(err)
       );
   }
