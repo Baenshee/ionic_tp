@@ -5,11 +5,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { TestPage } from '../pages/test/test';
+import { TestPageModule } from '../pages/test/test.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Camera } from '@ionic-native/camera';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 
 
@@ -18,24 +17,22 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
     MyApp,
     HomePage,
     ListPage,
-    TestPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    TestPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
-    TestPage
+    ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Camera,
     Base64ToGallery
   ]
 })

@@ -3,6 +3,7 @@ import {IonicPage, NavController} from 'ionic-angular';
 import {Camera} from '@ionic-native/camera';
 import {Base64ToGallery} from '@ionic-native/base64-to-gallery';
 import {LoadingController} from 'ionic-angular';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 /**
  * Generated class for the TestPage page.
@@ -23,7 +24,8 @@ export class TestPage {
   constructor(public navCtrl: NavController,
               public camera: Camera,
               private base64ToGallery: Base64ToGallery,
-              private loadingController: LoadingController) {
+              private loadingController: LoadingController,
+              private localNotifications: LocalNotifications) {
   }
 
   takePicture() {
@@ -44,7 +46,13 @@ export class TestPage {
     let loading = this.loadingController.create({content: "Saving..."});
     loading.present().then(() => {
         this.base64ToGallery.base64ToGallery(this.imageData, {prefix: '_img'}).then(
-          res => loading.dismiss(),
+          res => {
+            loading.dismiss();
+            this.localNotifications.schedule({
+              id: 1,
+              text: 'Saved'
+            })
+            },
           err => console.log('Error saving image to gallery ', err)
         );
       }
