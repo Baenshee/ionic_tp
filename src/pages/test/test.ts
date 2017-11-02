@@ -66,13 +66,13 @@ export class TestPage {
 
   takeVideo() {
     let options: CaptureImageOptions = {limit: 3};
-    this.mediaCapture.captureImage(options)
+    this.mediaCapture.captureVideo(options)
       .then(
         (data: MediaFile[]) => {
           console.log(data)
           this.videoData = data[0].fullPath;
         },
-        (err: CaptureError) => console.error(err)
+        (err: CaptureError) => alert(err)
       );
   }
 
